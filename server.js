@@ -1,7 +1,7 @@
 'use strict';
 
-import express from 'express';
-import { Server } from 'ws';
+const express = require('express');
+const { Server } = require('ws');
 
 const PORT = process.env.PORT || 3000;
 const INDEX = '/index.html';
