@@ -1,0 +1,26 @@
+{
+  "name": "inout-cricket-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aryaman-titan/inout-cricket-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aryaman-titan/inout-cricket-backend/issues"
+  },
+  "homepage": "https://github.com/aryaman-titan/inout-cricket-backend#readme",
+  "dependencies": {
+    "bufferutil": "^4.0.2",
+    "express": "^4.17.1",
+    "utf-8-validate": "^5.0.3",
+    "ws": "^7.4.1"
+  }
+}
