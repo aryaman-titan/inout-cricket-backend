@@ -1,7 +1,7 @@
 'use strict';
 
-import express from 'express';
-import { Server } from 'ws';
+const express = require('express');
+const { Server } = require('ws');
 
 const PORT = process.env.PORT || 3000;
 const INDEX = '/index.html';
@@ -31,8 +31,6 @@ wss.on('connection', (ws) => {
 
   ws.on('message', function incoming(data) {
     console.log(data);
-    console.log(wss.clients);
-    
     switch (data) {
       case '4':
         wss.clients.forEach((client) => {
