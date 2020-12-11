@@ -31,8 +31,6 @@ wss.on('connection', (ws) => {
 
   ws.on('message', function incoming(data) {
     console.log(data);
-    console.log(wss.clients);
-    
     switch (data) {
       case '4':
         wss.clients.forEach((client) => {
