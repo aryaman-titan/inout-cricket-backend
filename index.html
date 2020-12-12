@@ -7,6 +7,8 @@
 
       ws.onmessage = (event) => {
           let obj = JSON.parse(event.data)
+          el = document.getElementById("server-data");
+          el.innerHTML += JSON.stringify(obj);
           console.log(obj);
       };
 
@@ -16,6 +18,7 @@
       function send_6(){
         ws.send("6")
       }
+
     </script>
   </head>
   <body>

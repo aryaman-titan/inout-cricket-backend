@@ -34,16 +34,16 @@ wss.on('connection', (ws) => {
     switch (data) {
       case '4':
         wss.clients.forEach((client) => {
-          if (client !== ws ) {
+          // if (client !== ws ) {
             client.send(JSON.stringify(four));
-          }
+          // }
         })
         break;
       case '6':
         wss.clients.forEach((client) => {
-          if (client !== ws ) {
+          // if (client !== ws ) {
             client.send(JSON.stringify(six));
-          }
+          // }
         })
         break;
       default:
@@ -51,6 +51,12 @@ wss.on('connection', (ws) => {
         break;
     }
   });
+
+
+  setInterval(function(){
+    ws.ping();
+  }, 1000);
+
 
   ws.on('close', () => console.log('Client disconnected'));
 });
