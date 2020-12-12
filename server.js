@@ -1,27 +1,16 @@
 'use strict';
 
 const express = require('express');
-const { Server } = require('ws');
+const { Server, CLOSING } = require('ws');
+const routes = require('./routes');
+
+const Matches = require('./matchData');
+// console.log(Matches.four);
 
 const PORT = process.env.PORT || 3000;
-const INDEX = '/index.html';
-
-const four = {
-  name_of_shot: '4',
-  batsman: 'Aryaman',
-  bowler: 'Hellix',
-  umpire: 'Aviral'
-}
-
-const six = {
-  name_of_shot: '6',
-  batsman: 'Aryaman',
-  bowler: 'Hellix',
-  umpire: 'Aviral'
-}
 
 const server = express()
-  .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
+  .use('/', routes)
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 const wss = new Server({ server });
@@ -35,14 +24,14 @@ wss.on('connection', (ws) => {
       case '4':
         wss.clients.forEach((client) => {
           // if (client !== ws ) {
-            client.send(JSON.stringify(four));
+            client.send(JSON.stringify(Matches.four));
           // }
         })
         break;
       case '6':
         wss.clients.forEach((client) => {
           // if (client !== ws ) {
-            client.send(JSON.stringify(six));
+            client.send(JSON.stringify(Matches.six));
           // }
         })
         break;

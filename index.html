@@ -8,7 +8,7 @@
       ws.onmessage = (event) => {
           let obj = JSON.parse(event.data)
           el = document.getElementById("server-data");
-          el.innerHTML += JSON.stringify(obj);
+          el.innerHTML += JSON.stringify(obj)+"<br>";
           console.log(obj);
       };
 
