@@ -1,29 +1,32 @@
 <html>
   <head>
     <script>
-      let HOST = location.origin.replace(/^http/, 'ws')
+      let HOST = location.origin.replace(/^http/, "ws");
       let ws = new WebSocket(HOST);
       let el;
 
       ws.onmessage = (event) => {
-          let obj = JSON.parse(event.data)
-          el = document.getElementById("server-data");
-          el.innerHTML += JSON.stringify(obj)+"<br>";
-          console.log(obj);
+        let obj = JSON.parse(event.data);
+        el = document.getElementById("server-data");
+        el.innerHTML += JSON.stringify(obj) + "<br>";
+        console.log(obj);
       };
 
-      function send_4(){
-        ws.send("4")
+      function send_4() {
+        ws.send("4");
       }
-      function send_6(){
-        ws.send("6")
+      function send_6() {
+        ws.send("6");
       }
-
+      function send_c() {
+        ws.send("custom");
+      }
     </script>
   </head>
   <body>
     <button onclick="send_4()">Click me for a four!</button>
     <button onclick="send_6()">Click me for a six!</button>
+    <button onclick="send_c()">Click me for customData!</button>
     <p id="server-data"></p>
   </body>
 </html>

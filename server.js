@@ -35,6 +35,13 @@ wss.on('connection', (ws) => {
           // }
         })
         break;
+      case 'custom':
+        wss.clients.forEach((client) => {
+          // if (client !== ws ) {
+            client.send(JSON.stringify(Matches.customData));
+          // }
+        })
+        break;  
       default:
         client.send('No info!');
         break;
